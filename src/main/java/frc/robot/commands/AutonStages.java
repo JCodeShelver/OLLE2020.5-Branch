@@ -7,15 +7,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+
 import frc.robot.commands.DriveSegment;
 import frc.robot.commands.DriveTurn;
 
 import frc.robot.subsystems.DriveSystem;
-import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.FrontIntake;
 import frc.robot.subsystems.GyroPID;
 import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Spinner;
 import frc.robot.subsystems.VisionPID;
 
 import frc.robot.Constants;
@@ -24,7 +23,7 @@ public class AutonStages extends SequentialCommandGroup
 {
     // --------------------------------------------------------------------------
     // Constructor
-    public AutonStages(DriveSystem driveSystem, GyroPID gyroPID, FrontIntake intake, Shooter shooter, VisionPID visionPID, Spinner spinner, Elevator elevator)
+    public AutonStages(DriveSystem driveSystem, GyroPID gyroPID, FrontIntake intake, Shooter shooter, VisionPID visionPID)
     {
         gyroPID.resetGyro();
         

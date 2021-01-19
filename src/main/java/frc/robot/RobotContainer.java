@@ -17,23 +17,17 @@ import frc.robot.commands.AutonSimple;
 import frc.robot.commands.AutonStages;
 import frc.robot.commands.AutoPickUpBalls;
 import frc.robot.commands.DriveAlignToTarget;
-import frc.robot.commands.DriveElevator;
 import frc.robot.commands.DriveHuman;
-import frc.robot.commands.FrontIntakeDriver;
-import frc.robot.commands.GetColorData;
-import frc.robot.commands.PneumaticManager;
+import frc.robot.commands.FrontIntakeDriver;import frc.robot.commands.PneumaticManager;
 import frc.robot.commands.PrepareToShoot;
 import frc.robot.commands.QueueManager;
 import frc.robot.commands.ShootDefaultActions;
-import frc.robot.commands.SpinnerControl;
 
 import frc.robot.subsystems.DriveSystem;
-import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.FrontIntake;
 import frc.robot.subsystems.GyroPID;
 import frc.robot.subsystems.Loader;
 import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Spinner;
 import frc.robot.subsystems.VisionPID;
 
 public class RobotContainer 
@@ -45,12 +39,10 @@ public class RobotContainer
 
   // Instantiate all robot subsystems
   private final DriveSystem   driveSystem   = new DriveSystem();
-  private final Elevator      elevator      = new Elevator();
   private final FrontIntake   frontIntake   = new FrontIntake();
   private final GyroPID       gyroPID       = new GyroPID();
   private final Loader        loader        = new Loader();
   private final Shooter       shooter       = new Shooter();
-  private final Spinner       spinner       = new Spinner();
   private final VisionPID     visionPID     = new VisionPID();
 
   // ----------------------------------------------------------------------------
@@ -65,7 +57,7 @@ public class RobotContainer
                       () -> leftStick.getY(),
                       () -> rightStick.getZ()
                       ));
-    shooter.setDefaultCommand(new ShootDefaultActions(shooter, visionPID, elevator, spinner));
+    shooter.setDefaultCommand(new ShootDefaultActions(shooter, visionPID));
     loader.setDefaultCommand(new QueueManager(loader));
     frontIntake.setDefaultCommand(new FrontIntakeDriver(frontIntake, controller));
   }
@@ -86,23 +78,23 @@ public class RobotContainer
     |--------------+-------------------+-----------------------+----------------------------+--------------------------------------------+
     |    ______    |1       /        A | NOT BOUND             | Front Intake Toggle      OP| NOT BOUND                                  |
     |   /_____//\  |-------------------+-----------------------+----------------------------+--------------------------------------------+
-    |  |/     \//| |2       /        B | NOT BOUND             | NOT BOUND                  | Spinner Control                          OP|
+    |  |/     \//| |2       /        B | NOT BOUND             | NOT BOUND                  | NOT BOUND                                  |
     |  |       |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
-    |  |   B   |/| |3       /        X | NOT BOUND             | Switch Camera Mode       OP| Spinner Contact Toggle                   OP|
+    |  |   B   |/| |3       /        X | NOT BOUND             | Switch Camera Mode       OP| NOT BOUND                                  |
     |  |       |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
-    |  |       |/| |4       /        Y | NOT BOUND             | Prepare To Shoot        TOP| Spinner Assembly Toggle                  OP|
+    |  |       |/| |4       /        Y | NOT BOUND             | Prepare To Shoot        TOP| NOT BOUND                                  |
     |  |   U   |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
-    |  |       |/| |5       /       LB | NOT BOUND             | Choke Shooter RPM        OH| Drive Elevator                          TOP|
+    |  |       |/| |5       /       LB | NOT BOUND             | Choke Shooter RPM        OH| NOT BOUND                                  |
     |  |       |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
     |  |   T   |/| |6       /       RB | NOT BOUND             | Align to Target         TOP| Stop Front Intake motors, Shoot Ball  OH/OH|
     |  |       |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
     |  |       |/| |7       /     Back | NOT BOUND             | NOT BOUND                  | NOT BOUND                                  |
     |  |   T   |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
-    |  |       |/| |8       /    Start | NOT BOUND             | NOT BOUND                  | Elevator Top Toggle                      OP|
+    |  |       |/| |8       /    Start | NOT BOUND             | NOT BOUND                  | NOT BOUND                                  |
     |  |       |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
     |  |   O   |/| |9       /       LS | NOT BOUND             | NOT BOUND                  | NOT BOUND                                  |
     |  |       |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
-    |  |       |/| |10      /       RS | NOT BOUND             | Get Color Data           OP| NOT BOUND                                  |
+    |  |       |/| |10      /       RS | NOT BOUND             | NOT BOUND                  | NOT BOUND                                  |
     |  |   N   |/| |-------------------+-----------------------+----------------------------+--------------------------------------------+
     |  |       |/| |11      /      N/A | NOT BOUND             | Half Drive Inputs        OH| NOT APPLICABLE                             |
     |  \\_____///  |-------------------+-----------------------+----------------------------+--------------------------------------------+
@@ -113,13 +105,13 @@ public class RobotContainer
     |   /_____//\  |---------------------------+---------------------------------+---------------------------+------------------------------------------+
     |  |/     \//| |1  /  X  /   Left X        | NOT BOUND                       | NOT BOUND                 | NOT BOUND                                |    
     |  |   T   |/| |---------------------------+---------------------------------+---------------------------+------------------------------------------+
-    |  |   R   |/| |2  /  Y  /   Left Y        | D.Human, D.Target, Moving motor | D.Human                   | Elevator motors                          |
+    |  |   R   |/| |2  /  Y  /   Left Y        | D.Human, D.Target, Moving motor | D.Human                   | NOT BOUND                                |
     |  |   I   |/| |---------------------------+---------------------------------+---------------------------+------------------------------------------+
     |  |   G   |/| |3  /  Z  /  LT & RT        | Shooter RPM Tweak               | D.Human                   | Front Intake motors (LT - / RT +)        |
     |  |   G   |/| |---------------------------+---------------------------------+---------------------------+------------------------------------------+
     |  |   E   |/| |4  /  Throttle  /  Right X | NOT BOUND                       | NOT BOUND                 | NOT BOUND                                |
     |  |   R   |/| |---------------------------+---------------------------------+---------------------------+------------------------------------------+
-    |  |   S   |/| |5  /  Hat X  /  Right Y    | NOT BOUND                       | NOT BOUND                 | Winch motors                             |
+    |  |   S   |/| |5  /  Hat X  /  Right Y    | NOT BOUND                       | NOT BOUND                 | NOT BOUND                                |
     |  \\_____///  |---------------------------+---------------------------------+---------------------------+------------------------------------------+
     |    ``````    |6  /  Hat Y  /  D-Pad      | NOT BOUND                       | NOT BOUND                 | NOT BOUND                                |
     |---------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -127,18 +119,10 @@ public class RobotContainer
     new JoystickButton(rightStick, 3).whenPressed(() -> visionPID.cameraModeSwitch());
     new JoystickButton(rightStick, 4).toggleWhenPressed(new PrepareToShoot(shooter, visionPID));
     new JoystickButton(rightStick, 6).toggleWhenPressed(new DriveAlignToTarget(driveSystem, visionPID));
-    new JoystickButton(rightStick, 10).whenPressed(new GetColorData(spinner));
 
-    new JoystickButton(controller, XboxController.Button.kB.value).whenPressed(new SpinnerControl(spinner));
-    new JoystickButton(controller, XboxController.Button.kBumperLeft.value).toggleWhenPressed(new DriveElevator(elevator));
 
     //Toggling pneumatics
-    new JoystickButton(rightStick, 1).whenPressed(new PneumaticManager(frontIntake, spinner, elevator, Constants.IntakeMovementActions.TOGGLE_INTAKE_UP_DOWN));
-
-    new JoystickButton(controller, XboxController.Button.kX.value).whenPressed(new PneumaticManager(frontIntake, spinner, elevator, Constants.IntakeMovementActions.WOF_CONTACT_DISENGAGE));    
-    new JoystickButton(controller, XboxController.Button.kY.value).whenPressed(new PneumaticManager(frontIntake, spinner, elevator, Constants.IntakeMovementActions.WOF_UP_DOWN));
-    // new JoystickButton(controller, XboxController.Button.kBack.value).whenPressed(new PneumaticManager(frontIntake, spinner, elevator, shooter, Constants.IntakeMovementActions.ELEVATOR_BOTTOM_CYLINDERS));
-    new JoystickButton(controller, XboxController.Button.kStart.value).whenPressed(new PneumaticManager(frontIntake, spinner, elevator, Constants.IntakeMovementActions.ELEVATOR_TOP_CYLINDERS));  
+    new JoystickButton(rightStick, 1).whenPressed(new PneumaticManager(frontIntake, Constants.IntakeMovementActions.TOGGLE_INTAKE_UP_DOWN));
   }
 
   // ----------------------------------------------------------------------------
@@ -149,7 +133,7 @@ public class RobotContainer
     Command autonCommandChoice = new AutonSimple(driveSystem);
 
     if (SmartDashboard.getBoolean("Auton Stages", true))
-        autonCommandChoice = new AutonStages(driveSystem, gyroPID, frontIntake, shooter, visionPID, spinner, elevator);
+        autonCommandChoice = new AutonStages(driveSystem, gyroPID, frontIntake, shooter, visionPID);
 
     return autonCommandChoice;
   }
