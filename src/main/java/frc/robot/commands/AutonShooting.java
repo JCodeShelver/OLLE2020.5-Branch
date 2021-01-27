@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Autonomous Shooting Command
 // Manages the Shooter mechanism during the
 // Autonomous period.
@@ -8,14 +8,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+// Import Subsystems
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.VisionPID;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class AutonShooting extends CommandBase
 {
-  // Robot object referencess required for this action
+  // Set vars
   private final Shooter   shooterSystem;
   private final VisionPID visionPID;
 

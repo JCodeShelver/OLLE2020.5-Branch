@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Drive Subsystem
 // Manage motors for human driving and auton
 // motion.
@@ -7,16 +7,20 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+// Import External Libraries
 import com.ctre.phoenix.motorcontrol.can.*;  
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class DriveSystem extends SubsystemBase 
 {
+    // Set vars
     private final CANSparkMax leftMotor1, leftMotor2, rightMotor1, rightMotor2;
     private final TalonSRX encoderReading;
+    
     private double adjustedL, adjustedR, adjustedX, adjustedY;
 
     // --------------------------------------------------------------------------

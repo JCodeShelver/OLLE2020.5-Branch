@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Front Intake Driver Command
 // Command that manages the front intake 
 // mechanism.
@@ -9,12 +9,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
 
+// Import Subsystems
 import frc.robot.subsystems.FrontIntake;
 
 public class FrontIntakeDriver extends CommandBase 
 {
+  // Set vars
   private final FrontIntake frontIntake;   
+  
   private XboxController controller;
+  
   private double input;
 
   // ----------------------------------------------------------------------------
@@ -36,7 +40,7 @@ public class FrontIntakeDriver extends CommandBase
   }
 
   // ----------------------------------------------------------------------------
-  //  
+  // Pipes in user input into the Front Intake Subsystem.
   @Override
   public void execute()
   { 
@@ -59,7 +63,7 @@ public class FrontIntakeDriver extends CommandBase
   }
 
   // ----------------------------------------------------------------------------
-  // 
+  // This is a default command, so always return false.
   @Override
   public boolean isFinished() 
   {

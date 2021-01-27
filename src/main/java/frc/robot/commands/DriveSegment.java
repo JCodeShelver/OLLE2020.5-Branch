@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Drive Straight Command
 // Command that controls DriveSystem subsystem and uses
 // encoder measure to drive a given distance in inches.
@@ -10,18 +10,22 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
 
+// Import Subsystems
 import frc.robot.subsystems.DriveSystem;
 import frc.robot.subsystems.GyroPID;
 
+// Import Constants
 import frc.robot.Constants;
 
 
 public class DriveSegment extends CommandBase
 {
-    // Robot object referencess required for this action
+    // Set vars
     private final DriveSystem   driveSystem;  
     private final GyroPID       gyroPID; 
+    
     private Timer segmentDriveTimer;
+    
     // For adjusting left/right motors for angle correction
     private double angleMotorAdjust, left, powerLevel, percentage, right, targetAngle, targetDistance;   
 
@@ -63,8 +67,8 @@ public class DriveSegment extends CommandBase
             angleMotorAdjust = gyroPID.getOutput();     // Get gyro value
 
             // Adjust motor level to keep robot moving straight
-            left             = powerLevel - angleMotorAdjust;
-            right            = powerLevel + angleMotorAdjust;
+            left    = powerLevel - angleMotorAdjust;
+            right   = powerLevel + angleMotorAdjust;
             
             if (segmentDriveTimer.get() < Constants.RAMP_UP_TIME)               // Handle gradual ramp down
             {

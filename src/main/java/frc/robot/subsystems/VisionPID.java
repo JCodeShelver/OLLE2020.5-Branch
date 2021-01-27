@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // VisionPID Subsystem
 // Manages the PID controller for Vision.
 
@@ -11,14 +11,17 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
+// Import Constants
 import frc.robot.Constants;
 
 
 public class VisionPID extends PIDSubsystem 
 { 
+	// Set vars
 	private NetworkTable table;
 	private NetworkTableEntry tx, ty, ta;
 	private NetworkTableInstance tableData;
+	
 	private double pidOutput, currentSetpoint;
 
 	// --------------------------------------------------------------------------

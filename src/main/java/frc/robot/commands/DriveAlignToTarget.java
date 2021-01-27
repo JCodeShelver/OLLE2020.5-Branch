@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Drive Align-to-Target Command
 // Command that can control the DriveSystem 
 // subsystem and use encoder measure to 
@@ -9,14 +9,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.Joystick;
 
+// Import Subsystems
 import frc.robot.subsystems.DriveSystem;
 import frc.robot.subsystems.VisionPID;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class DriveAlignToTarget extends CommandBase
 {
-    // Robot object referencess required for this action
+    // Set vars
     private final DriveSystem   driveSystem;  
     private final VisionPID     visionPID;
 

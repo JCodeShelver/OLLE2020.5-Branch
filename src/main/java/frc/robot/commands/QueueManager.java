@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Queue Manager Command
 // Manages the Shooter and Loader subsystems
 // to control what triggers when.
@@ -10,16 +10,21 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
+// Import Subsystems
 import frc.robot.subsystems.Loader;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class QueueManager extends CommandBase 
 {
+    // Set vars
     private Loader loader;
 
     private Joystick leftStick;
+    
     private XboxController controller;
+    
     private boolean ballInQueue = false, ballComingIn = false, ballAtBack = false;
 
     // ----------------------------------------------------------------------------

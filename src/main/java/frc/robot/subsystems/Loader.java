@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Loader Subsystem
 // Controlls the conveyor mechanism and
 // ball detection sensors.
@@ -8,13 +8,16 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DigitalInput;
 
+// Import External Libraries
 import com.ctre.phoenix.motorcontrol.*;
 import com.ctre.phoenix.motorcontrol.can.*;  
 
+// Import Constants
 import frc.robot.Constants;
 
 public class Loader extends SubsystemBase 
 { 
+  // Set vars
   private final DigitalInput backSwitch, closeSwitch, intakeSwitch;
   private final TalonSRX loadingMotor, movingMotor;
 

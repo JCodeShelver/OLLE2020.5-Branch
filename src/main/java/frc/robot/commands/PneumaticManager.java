@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Pneumatic Manager Command
 // Manages MOST OF THE PNEMUATICS in one
 // file. It does not manage the Shooter
@@ -9,14 +9,18 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+// Import Subsystems
 import frc.robot.subsystems.FrontIntake;
 import frc.robot.subsystems.Shooter;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class PneumaticManager extends CommandBase 
 {
+  // Set vars
   private final FrontIntake frontIntake;   
+  
   private Constants.IntakeMovementActions actionCode;
 
   // ----------------------------------------------------------------------------
@@ -36,7 +40,7 @@ public class PneumaticManager extends CommandBase
   }
 
   // ----------------------------------------------------------------------------
-  //  
+  // Manages Pneumatics
   @Override
   public void execute() 
   {
@@ -60,7 +64,7 @@ public class PneumaticManager extends CommandBase
   }
   
   // ----------------------------------------------------------------------------
-  // 
+  // This commands is only needed to do one thing. Once done, it removes itself from the schedule.
   @Override
   public boolean isFinished() 
   {

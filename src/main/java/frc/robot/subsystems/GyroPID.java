@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // GyroPID Subsystem
 // Manages gyroscope mechanism and PID 
 // control with gyroscope.
@@ -9,13 +9,17 @@ import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.SPI;
 
+// Import External Libraries
 import com.kauailabs.navx.frc.AHRS;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class GyroPID extends PIDSubsystem 
 { 
+	// Set vars
 	private AHRS gyro;
+	
 	private double currentSetpoint, pidOutput;
 
 	// --------------------------------------------------------------------------

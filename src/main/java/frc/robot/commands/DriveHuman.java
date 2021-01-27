@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Drive Human Command
 // Has access to the DriveSystem subsystem.
 // Receives joystick values and sets them to
@@ -15,13 +15,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.XboxController;
 
+// Import Subsystems
 import frc.robot.subsystems.DriveSystem;
 import frc.robot.subsystems.FrontIntake;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class DriveHuman extends CommandBase 
 {
+  // Set vars
   private final DriveSystem driveSystem;   // Reference to drive system object 
   
   private DoubleSupplier leftStickValue, rightStickXValue, rightStickYValue;

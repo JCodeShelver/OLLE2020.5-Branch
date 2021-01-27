@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Front Intake Subsystem
 // Manage the ball intake mechanism.
 
@@ -7,15 +7,19 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
+// Import External Libraries
 import com.ctre.phoenix.motorcontrol.*;
 import com.ctre.phoenix.motorcontrol.can.*;  
 
+// Import Constants
 import frc.robot.Constants;
 
 public class FrontIntake extends SubsystemBase 
 { 
+  // Set vars
   private final DoubleSolenoid deployCylinder;
   private final TalonSRX intakeMotor, sideToSideMotor;
+ 
   private boolean isOut = false;
 
   // ----------------------------------------------------------------------------

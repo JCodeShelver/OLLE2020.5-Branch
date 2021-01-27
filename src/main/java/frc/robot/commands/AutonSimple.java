@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Autonomous (Simple) Command
 // A basic Autonomous routine: drive forward
 // for two seconds and stop.
@@ -8,10 +8,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.Timer;
 
+// Import Subsystems
 import frc.robot.subsystems.DriveSystem;
 
 public class AutonSimple extends CommandBase
 {
+  // Set vars
   private final DriveSystem driveSystem;   // Reference to drive system object 
   private Timer driveTimer = new Timer();
 

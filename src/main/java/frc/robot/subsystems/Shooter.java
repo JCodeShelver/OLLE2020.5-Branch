@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Shooter Subsystem
 // Controls the ball shooter system, and 
 // utilizes PID controller for motor speed.
@@ -11,20 +11,24 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+// Import External Libraries
 import com.ctre.phoenix.motorcontrol.*;
 import com.ctre.phoenix.motorcontrol.can.*;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase 
 {
+  // Set vars
   private final DoubleSolenoid ShootingPiston;
   private final DigitalInput   BallInShooter;
   private final PIDController  ShooterPID;
   private final TalonSRX       shooterMotor;
-  private boolean shooterPistonDown;
-  private double  currentSetPoint;
-  private double     TPM;
+  
+  private boolean              shooterPistonDown;
+  
+  private double               currentSetPoint, TPM;
 
   // ----------------------------------------------------------------------------
   // Constructor - (Do nothing)

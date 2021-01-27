@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2020
+// FRC Team 3770 - BlitzCreek - OLLE 2021
 // Prepare to Shoot command
 // Prepares shooter motor for shooting.
 // Motor speed set using vision feedback.
@@ -11,14 +11,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.XboxController;
 
+// Import Subsystems
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.VisionPID;
 
+// Import Constants
 import frc.robot.Constants;
 
 public class PrepareToShoot extends CommandBase
 {
-  // Robot object referencess required for this action
+  // Set vars
   private final Shooter   shooterSystem;
   private final VisionPID visionPID;
 
