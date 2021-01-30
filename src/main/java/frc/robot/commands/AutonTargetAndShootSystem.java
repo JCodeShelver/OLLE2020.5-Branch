@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // Autonomous Targeting and Shooting Command
 // Autonomous routine requiring multiple 
 // segments & turns in sequence. Drive 

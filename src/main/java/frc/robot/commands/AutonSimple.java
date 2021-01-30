@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // Autonomous (Simple) Command
 // A basic Autonomous routine: drive forward
 // for two seconds and stop.

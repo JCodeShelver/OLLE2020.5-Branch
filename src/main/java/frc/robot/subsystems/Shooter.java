@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // Shooter Subsystem
 // Controls the ball shooter system, and 
 // utilizes PID controller for motor speed.

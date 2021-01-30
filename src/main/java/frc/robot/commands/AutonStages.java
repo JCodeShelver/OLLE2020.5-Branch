@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // Auton Stages Command
 // Auto routine requiring multiple segments & turns in sequence
 // Drive forward two seconds and stop

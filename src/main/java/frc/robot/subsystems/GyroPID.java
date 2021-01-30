@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // GyroPID Subsystem
 // Manages gyroscope mechanism and PID 
 // control with gyroscope.

@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // Prepare to Shoot command
 // Prepares shooter motor for shooting.
 // Motor speed set using vision feedback.

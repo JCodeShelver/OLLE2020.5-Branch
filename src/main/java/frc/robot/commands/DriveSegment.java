@@ -1,4 +1,4 @@
-// FRC Team 3770 - BlitzCreek - OLLE 2021
+// FRC Team 3770 - BlitzCreek - OLLE 2020.5
 // Drive Straight Command
 // Command that controls DriveSystem subsystem and uses
 // encoder measure to drive a given distance in inches.
